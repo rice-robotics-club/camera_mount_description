@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(onshape_description)
+project(camera_mount_description)
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
