@@ -34,7 +34,9 @@ jobs:
           ONSHAPE_ACCESS_KEY: ${{ secrets.ONSHAPE_ACCESS_KEY }}
           ONSHAPE_SECRET_KEY: ${{ secrets.ONSHAPE_SECRET_KEY }}
         run: onshape-to-robot .
-      - run: mv -f robot.urdf urdf/robot.urdf
+      - run: |
+          mkdir -p urdf
+          mv -f robot.urdf urdf/robot.urdf
       - uses: RadovanPelka/github-action-json@main
         with: 
           path: config.json
@@ -50,6 +52,7 @@ jobs:
           ONSHAPE_SECRET_KEY: ${{ secrets.ONSHAPE_SECRET_KEY }}
         if: ${{ inputs.add_mjcf }}
       - run: |
+          mkdir -p mjcf
           mv -f robot.xml mjcf/robot.xml
           rm scene.xml
         if: ${{ inputs.add_mjcf }}
