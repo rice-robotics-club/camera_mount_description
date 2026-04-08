@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<!-- Generated using onshape-to-robot -->
+<!-- Onshape document_id: 85bd6e2964c7811d4fb9f650 / workspace_id: a56d70e15e76e81b97ab748d -->
+<robot name="robot">
+  <!-- Link part_1 -->
+  <link name="part_1">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-09"/>
+      <inertia ixx="1e-09" ixy="0" ixz="0" iyy="1e-09" iyz="0" izz="1e-09"/>
+    </inertial>
+    <!-- Part part_1 -->
+    <visual>
+      <origin xyz="0 0 0" rpy="0 -0 0"/>
+      <geometry>
+        <mesh filename="package://camera_mount_description/meshes/part_1.stl"/>
+      </geometry>
+      <material name="part_1_material">
+        <color rgba="0.647059 0.647059 0.647059 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 -0 0"/>
+      <geometry>
+        <mesh filename="package://camera_mount_description/meshes/part_1.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Frame tool_link (dummy link + fixed joint) -->
+  <link name="tool_link">
+    <origin xyz="0 0 0" rpy="0 -0 0"/>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-9"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+  </link>
+  <joint name="tool_link_frame" type="fixed">
+    <origin xyz="0 0 0.00699997" rpy="0 -0 0"/>
+    <parent link="part_1"/>
+    <child link="tool_link"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+</robot>
