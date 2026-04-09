@@ -41,4 +41,19 @@
     <child link="tool_link"/>
     <axis xyz="0 0 0"/>
   </joint>
+  <!-- Frame camera_link (dummy link + fixed joint) -->
+  <link name="camera_link">
+    <origin xyz="0 0 0" rpy="0 -0 0"/>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-9"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+  </link>
+  <joint name="camera_link_frame" type="fixed">
+    <origin xyz="-8.05759e-05 -0.0777769 0.00836815" rpy="-0.139625 3.04604e-07 -4.28088e-08"/>
+    <parent link="part_1"/>
+    <child link="camera_link"/>
+    <axis xyz="0 0 0"/>
+  </joint>
 </robot>
